@@ -1,0 +1,45 @@
+#zinit插件管理器
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
+
+# 快速目录跳转
+zinit ice lucid wait='1'
+zinit light skywind3000/z.lua
+
+# 语法高亮
+zinit ice lucid wait='0' atinit='zpcompinit'
+zinit light zdharma/fast-syntax-highlighting
+
+# 自动建议
+zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+
+# 补全
+zinit ice lucid wait='0'
+zinit light zsh-users/zsh-completions
+
+# 加载 OMZ 框架及部分插件
+zinit snippet OMZ::lib/completion.zsh
+zinit snippet OMZ::lib/history.zsh
+zinit snippet OMZ::lib/key-bindings.zsh
+zinit snippet OMZ::lib/theme-and-appearance.zsh
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+
+# 加载 pure 主题
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light sindresorhus/pure
+
+#主题配置
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+# change the path color
+zstyle :prompt:pure:path color white
+# change the color for both `prompt:success` and `prompt:error`
+zstyle ':prompt:pure:prompt:*' color cyan
+# turn on git stash status
+zstyle :prompt:pure:git:stash show yes
+zstyle :prompt:pure:git:fetch only_upstream yes
+
+source ~/.config/zsh/alias.zsh
