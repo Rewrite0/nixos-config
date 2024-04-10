@@ -1,4 +1,4 @@
-{pkgs, lib, ...}:
+{...}:
 {
   # https://github.com/gmodena/nix-flatpak
   services.flatpak = {

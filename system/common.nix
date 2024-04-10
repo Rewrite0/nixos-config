@@ -1,5 +1,7 @@
 {pkgs, ...}:
 {
+  nixpkgs.config.allowUnfree = true;
+
   time.timeZone = "Asia/Shanghai";
 
   programs.zsh.enable = true;

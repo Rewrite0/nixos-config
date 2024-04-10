@@ -6,7 +6,6 @@
     ./env.nix
     ./packages.nix
     ./i18n.nix
-    ./flatpak.nix
     ./fonts.nix
     ./openssh.nix
     ./network.nix

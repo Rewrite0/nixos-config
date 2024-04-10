@@ -27,14 +27,16 @@
 
   fonts = {
     fontDir.enable = true;
+    fontconfig.enable = true;
     packages = with pkgs; [
       wqy_zenhei
       wqy_microhei
       fira-code-nerdfont
       maple-mono-SC-NF
+      source-code-pro
       noto-fonts
-      noto-fonts-emoji
       noto-fonts-cjk
+      noto-fonts-emoji
     ];
   };
 }
